@@ -80,26 +80,46 @@
 		</tr>
 	</table> <br>";
 	?>
+	
+
+	
+
+
+
+	<a href="<?php
+	 echo "<script language='JavaScript'>
+	location.href = 'https://www.youtube.com/'
+	</script>";
+?>"> ir a youtube</a>
+		
+
+	
 
 
 	<?php
 if (isset($_POST['municipio'])) {
     $arr = array();
+    //asignar los datos del formulario a la variable $value en este caso 6
     foreach ($_POST['municipio'] as $value){
+    	//asignar los valores del input al array
         foreach($value as $llave=>$valor){
             $arr[$llave] = $valor;
         }
     }
+    // imprimir en pantalla los datos del array dentro de la etiqueta <prev>
     echo "<pre>";
     print_r($arr);
     echo "</pre>";
 }
+// asignar un valor a la variable $municipio  desde donde el array comenzara a contar
 $municipio = 6;
 ?>
 <form action="" method="post">
     <?php
+    // contador para aumentar el numero de inputs
     for ($i = 0; $i <= 5; $i++) {
         ?>
+        <!-- input que recibe datos y luego de enviarlo usando el post lo imprime en pantalla -->
         <input type="text" name="municipio[][<?php echo $municipio; ?>]"/>
         <?php
         ++$municipio;
